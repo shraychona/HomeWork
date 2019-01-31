@@ -4,8 +4,57 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'ly.img.android.pesdk'
+
+pesdkConfig {
+
+    licencePath "LICENSE" // Name of the Licence file in the asset folder
+
+    // Define the modules you are need
+    modules {
+        // Add all the backend modules you need
+        include 'ly.img.android.pesdk.operation:text'
+//        include 'ly.img.android.pesdk.operation:frame'
+//        include 'ly.img.android.pesdk.operation:focus'
+//        include 'ly.img.android.pesdk.operation:brush'
+//        include 'ly.img.android.pesdk.operation:camera'
+//        include 'ly.img.android.pesdk.operation:filter'
+//        include 'ly.img.android.pesdk.operation:sticker'
+//        include 'ly.img.android.pesdk.operation:overlay'
+//        include 'ly.img.android.pesdk.operation:adjustment'
+//        include 'ly.img.android.pesdk.operation:abstract-sticker'
+
+        // Add all the UI modules you are need
+//        include 'ly.img.android.pesdk.ui.mobile_ui:core'
+        include 'ly.img.android.pesdk.ui.mobile_ui:text'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:focus'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:frame'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:brush'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:filter'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:camera'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:sticker'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:overlay'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:transform'
+//        include 'ly.img.android.pesdk.ui.mobile_ui:adjustment'
+
+        // Add the serializer if you need
+        include 'ly.img.android.pesdk:serializer'
+
+        // Add asset packs if you need
+        include 'ly.img.android.pesdk.assets:font-basic'
+        include 'ly.img.android.pesdk.assets:font-text-design'
+//        include 'ly.img.android.pesdk.assets:frame-basic'
+//        include 'ly.img.android.pesdk.assets:filter-basic'
+//        include 'ly.img.android.pesdk.assets:overlay-basic'
+//        include 'ly.img.android.pesdk.assets:sticker-shapes'
+//        include 'ly.img.android.pesdk.assets:sticker-emoticons'
+    }
+}
+
 android {
     compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
     defaultConfig {
         applicationId "com.example.homework"
         minSdkVersion 21
@@ -13,6 +62,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Please ignore the next line :-)
+        resValue 'string', 'pesdk_version', "v$pesdk_version"
+    }
+
+    /* Set Java Language level to Java 1.8+ */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
         release {
@@ -24,12 +82,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
-    implementation 'ja.burhanrashid52:photoeditor:0.3.3'
-    implementation 'jp.co.cyberagent.android:gpuimage:2.0.3'
 }
