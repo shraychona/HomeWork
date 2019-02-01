@@ -10,10 +10,13 @@ pesdkConfig {
 
     licencePath "LICENSE" // Name of the Licence file in the asset folder
 
+    supportLibVersion "27.1.1"
+
     // Define the modules you are need
     modules {
         // Add all the backend modules you need
         include 'ly.img.android.pesdk.operation:text'
+
 //        include 'ly.img.android.pesdk.operation:frame'
 //        include 'ly.img.android.pesdk.operation:focus'
 //        include 'ly.img.android.pesdk.operation:brush'
@@ -25,8 +28,9 @@ pesdkConfig {
 //        include 'ly.img.android.pesdk.operation:abstract-sticker'
 
         // Add all the UI modules you are need
-//        include 'ly.img.android.pesdk.ui.mobile_ui:core'
+        include 'ly.img.android.pesdk.ui.mobile_ui:core'
         include 'ly.img.android.pesdk.ui.mobile_ui:text'
+
 //        include 'ly.img.android.pesdk.ui.mobile_ui:focus'
 //        include 'ly.img.android.pesdk.ui.mobile_ui:frame'
 //        include 'ly.img.android.pesdk.ui.mobile_ui:brush'
@@ -43,6 +47,7 @@ pesdkConfig {
         // Add asset packs if you need
         include 'ly.img.android.pesdk.assets:font-basic'
         include 'ly.img.android.pesdk.assets:font-text-design'
+
 //        include 'ly.img.android.pesdk.assets:frame-basic'
 //        include 'ly.img.android.pesdk.assets:filter-basic'
 //        include 'ly.img.android.pesdk.assets:overlay-basic'
